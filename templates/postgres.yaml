@@ -69,13 +69,29 @@ spec:
         persistentVolumeClaim:
           claimName: postgres-data
 ---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: postgres-data
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data_ps"
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: postgres-data
 spec:
+  storageClassName: manual
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
+      storage: 2Gi

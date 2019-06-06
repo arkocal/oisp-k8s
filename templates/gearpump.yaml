@@ -37,6 +37,9 @@ spec:
         image: oisp/gearpump:latest
         command: ["/bin/bash"]
         args: ["/app/bootstrap.sh"]
+        resources:
+          limits:
+            cpu: 350m
         env:
         - name: OISP_RULEENGINE_CONFIG
           valueFrom:

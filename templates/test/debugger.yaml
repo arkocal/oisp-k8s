@@ -42,9 +42,9 @@ spec:
           value: "{{ .Values.imap.port }}"
         resources:
           requests:
-            cpu: "2"
+            cpu: 1
           limits:
-            cpu: "2"
+            cpu: 1
       - name: jaeger-agent
         image: jaegertracing/jaeger-agent:1.6.0
         ports:

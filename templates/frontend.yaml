@@ -69,11 +69,11 @@ spec:
         - -t
         - "300"
         - --
-        - ./wait-for-it.sh
-        - hbase-master:9090
-        - -t
-        - "300"
-        - --
+#        - ./wait-for-it.sh
+#        - hbase-master:9090
+#        - -t
+#        - "300"
+#        - --
         - ./scripts/docker-start.sh
         - "--disable-rate-limits"
         env:

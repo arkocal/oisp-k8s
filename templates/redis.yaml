@@ -45,13 +45,29 @@ spec:
         persistentVolumeClaim:
           claimName: redis-data
 ---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: redis-data
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data_redis"
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: redis-data
 spec:
+  storageClassName: manual
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
+      storage: 2Gi
