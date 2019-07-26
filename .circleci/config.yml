@@ -26,7 +26,8 @@ commands:
             cd ..
             export DOCKERUSER=${DOCKERUSER}
             export DOCKERPASS=${DOCKERPASS}
-            sudo make deploy-oisp-test && sudo make wait-until-ready && sudo make test
+            sudo chmod 777 /snap/bin/kubectl
+            make deploy-oisp-test && make wait-until-ready && make test
 
 
 jobs:
