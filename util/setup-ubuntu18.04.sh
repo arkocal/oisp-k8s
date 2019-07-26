@@ -72,6 +72,6 @@ echo "\033[1mInstalling test dependencies"
 echo "----------------------------\033[0m"
 sudo apt install nodejs npm
 sleep 3
-npm install nodemailer
+sudo npm install nodemailer
 
 echo "\033[1mReady to deploy OISP\033[0m"

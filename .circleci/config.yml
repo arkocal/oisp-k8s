@@ -22,9 +22,9 @@ commands:
           name: Setup build environment
           command: |
             cd util
-            sh setup-ubuntu18.04.sh
+            sudo sh setup-ubuntu18.04.sh
             cd ..
-            make deploy-oisp-test && make wait-until-ready && make test
+            sudo make deploy-oisp-test && sudo make wait-until-ready && sudo make test
 
 
 jobs:
