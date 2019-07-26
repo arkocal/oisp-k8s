@@ -24,6 +24,8 @@ commands:
             cd util
             sudo sh setup-ubuntu18.04.sh
             cd ..
+            export DOCKERUSER=${DOCKERUSER}
+            export DOCKERPASS=${DOCKERPASS}
             sudo make deploy-oisp-test && sudo make wait-until-ready && sudo make test
 
 
