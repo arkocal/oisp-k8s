@@ -23,21 +23,8 @@ commands:
           command: |
             cd util
             sudo sh setup-ubuntu18.04.sh
-  deploy-oisp:
-    description: "Deploy oisp"
-    steps:
-      - run:
-          name: deploy oisp
-          command: |
-            make deploy-oisp && make wait-until-ready
+            make deploy-oisp && make wait-until-ready && make test
 
-  run-test:
-    description: "Run test"
-    steps:
-      - run:
-          name: Run test
-          command: |
-            make test
 
 jobs:
   e2e-test:
@@ -45,8 +32,6 @@ jobs:
     steps:
       - checkout
       - setup-environment
-      - deploy-oisp
-      - run-test
 
 workflows:
   version: 2.1
