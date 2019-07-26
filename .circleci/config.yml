@@ -28,6 +28,7 @@ jobs:
   e2e-test:
     executor: vm-executor
     steps:
+      - checkout
       - setup-build-environment
 
 workflows:
