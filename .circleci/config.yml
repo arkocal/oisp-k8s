@@ -21,7 +21,7 @@ commands:
       - run:
           name: Setup build environment
           command: |
-            cd utils
+            cd util
             sudo ./setup-ubuntu18.04.sh
 
 jobs:
