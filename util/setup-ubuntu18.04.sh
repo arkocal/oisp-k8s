@@ -74,5 +74,5 @@ sudo apt install nodejs npm
 sudo npm install -g n
 sudo n 8
 sudo npm install nodemailer
-
+sleep 3
 echo "\033[1mReady to deploy OISP\033[0m"
