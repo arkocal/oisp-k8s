@@ -27,8 +27,6 @@ commands:
 jobs:
   e2e-test:
     executor: vm-executor
-    branches:
-      - circleci
     steps:
       - setup-build-environment
 
