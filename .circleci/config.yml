@@ -15,7 +15,7 @@ executors:
       TZ: "Europe/Berlin"
 
 commands:
-  setup-build-environment:
+  setup-environment:
     description: "Setup build Environment"
     steps:
       - run:
@@ -23,13 +23,30 @@ commands:
           command: |
             cd util
             sudo sh setup-ubuntu18.04.sh
+  deploy-oisp:
+    description: "Deploy oisp"
+    steps:
+      - run:
+          name: deploy oisp
+          command: |
+            make deploy-oisp && make wait-until-ready
+
+  run-test:
+    description: "Run test"
+    steps:
+      - run:
+          name: Run test
+          command: |
+            make test
 
 jobs:
   e2e-test:
     executor: vm-executor
     steps:
       - checkout
-      - setup-build-environment
+      - setup-environment
+      - deploy-oisp
+      - run-test
 
 workflows:
   version: 2.1
