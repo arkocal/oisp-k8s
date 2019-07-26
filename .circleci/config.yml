@@ -23,6 +23,7 @@ commands:
           command: |
             cd util
             sudo sh setup-ubuntu18.04.sh
+            cd ..
             make deploy-oisp-test && make wait-until-ready && make test
 
 
