@@ -16,19 +16,26 @@ executors:
 
 commands:
   setup-environment:
-    description: "Setup build Environment"
+    description: "Setup test environment"
     steps:
       - run:
-          name: Setup build environment
+          name: Setup test environment
           command: |
             cd util
             sh setup-ubuntu18.04.sh
+            cd util && npm install nodemailer
   deploy-oisp:
     description: "Deploy OISP"
     steps:
       - run:
           name: Deploy OISP
           command: "export PATH=$PATH:/snap/bin && make deploy-oisp-test"
+  run-tests:
+    description: "Run tests"
+    steps:
+      - run:
+          name: Run tests
+          command: "export PATH=$PATH:/snap/bin && make test"
 
 
 jobs:
@@ -38,6 +45,7 @@ jobs:
       - checkout
       - setup-environment
       - deploy-oisp
+      - run-tests
 
 workflows:
   version: 2.1
