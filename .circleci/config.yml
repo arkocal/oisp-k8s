@@ -35,7 +35,7 @@ commands:
     steps:
       - run:
           name: Run tests
-          command: "export PATH=$PATH:/snap/bin && make test"
+          command: "export PATH=$PATH:/snap/bin && make wait-until-ready && make test"
 
 
 jobs:
