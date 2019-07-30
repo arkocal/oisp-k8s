@@ -17,7 +17,7 @@ echo ""
 
 echo "\033[1mInstalling kubectl"
 echo "------------------\033[0m"
-snap install kubectl --classic
+sudo snap install kubectl --classic
 if [ ! -d ~/.kube ]; then
       mkdir ~/.kube
 fi
@@ -55,7 +55,7 @@ echo ""
 
 echo "\033[1mInstalling helm"
 echo "---------------\033[0m"
-snap install helm --classic
+sudo snap install helm --classic
 
 kubectl -n kube-system create serviceaccount tiller
 kubectl create clusterrolebinding tiller --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
