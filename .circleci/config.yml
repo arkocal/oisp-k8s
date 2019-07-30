@@ -28,7 +28,7 @@ commands:
     steps:
       - run:
           name: Deploy OISP
-          command: "make deploy-oisp-test"
+          command: "env && make deploy-oisp-test"
 
 
 jobs:
@@ -37,6 +37,7 @@ jobs:
     steps:
       - checkout
       - setup-environment
+      - deploy-oisp
 
 workflows:
   version: 2.1
