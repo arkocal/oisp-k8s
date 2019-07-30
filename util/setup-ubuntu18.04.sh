@@ -1,7 +1,7 @@
 echo "\033[1mInstalling docker"
 echo "-----------------\033[0m"
-sudo apt update
-sudo apt install docker.io -y
+sudo apt -qq update
+sudo apt -qq install docker.io -y
 sudo systemctl start docker
 sudo systemctl enable docker
 echo "\033[1mSuccessfully installed" $(docker --version) "\033[0m"
@@ -17,11 +17,12 @@ echo ""
 
 echo "\033[1mInstalling kubectl"
 echo "------------------\033[0m"
-sudo snap install kubectl --classic
+snap install kubectl --classic
 if [ ! -d ~/.kube ]; then
       mkdir ~/.kube
 fi
 echo "\033[1mSuccessfully installed kubectl\033[0m"
+export PATH=$PATH:/snap/bin
 kubectl version --short
 echo ""
 
@@ -54,7 +55,7 @@ echo ""
 
 echo "\033[1mInstalling helm"
 echo "---------------\033[0m"
-sudo snap install helm --classic
+snap install helm --classic
 
 kubectl -n kube-system create serviceaccount tiller
 kubectl create clusterrolebinding tiller --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
@@ -70,7 +71,7 @@ echo "\033[1mOperators installed successfully.\033[0m"
 echo ""
 echo "\033[1mInstalling test dependencies"
 echo "----------------------------\033[0m"
-sudo apt install nodejs npm
+sudo apt -qq install nodejs npm
 sudo npm install -g n
 sudo n 8
 sudo npm install -g nodemailer
