@@ -23,7 +23,7 @@ commands:
           command: |
             cd util
             sh setup-ubuntu18.04.sh
-            cd util && npm install nodemailer
+            npm install nodemailer
   deploy-oisp:
     description: "Deploy OISP"
     steps:
