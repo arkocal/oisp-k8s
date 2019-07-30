@@ -28,7 +28,7 @@ commands:
     steps:
       - run:
           name: Deploy OISP
-          command: "env && make deploy-oisp-test"
+          command: "export PATH=$PATH:/snap/bin && make deploy-oisp-test"
 
 
 jobs:
