@@ -22,7 +22,7 @@ commands:
           name: Setup test environment
           command: |
             cd util
-            sh setup-ubuntu18.04.sh
+            export PATH=$PATH:/snap/bin && bash setup-ubuntu18.04.sh
             npm install nodemailer
   deploy-oisp:
     description: "Deploy OISP"
