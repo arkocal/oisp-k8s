@@ -22,7 +22,13 @@ commands:
           name: Setup build environment
           command: |
             cd util
-            sh setup-ubuntu18.04.sh && cd .. && export DOCKERUSER=${DOCKERUSER} && export DOCKERPASS=${DOCKERPASS} && sudo chmod 777 /snap/bin/kubectl && make deploy-oisp-test && make wait-until-ready && make test
+            sh setup-ubuntu18.04.sh
+  deploy-oisp:
+    description: "Deploy OISP"
+    steps:
+      - run:
+          name: Deploy OISP
+          command: "make deploy-oisp-test"
 
 
 jobs:
